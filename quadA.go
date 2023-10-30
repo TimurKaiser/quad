@@ -1,0 +1,64 @@
+package main
+
+import "github.com/01-edu/z01"
+
+func main() {
+	QuadA(1, 5)
+}
+
+func QuadA(x, y int) {
+	if x <= 0 || y <= 0 {
+		z01.PrintRune('P')
+		z01.PrintRune('A')
+		z01.PrintRune('S')
+		z01.PrintRune('O')
+		z01.PrintRune('U')
+		z01.PrintRune('F')
+		z01.PrintRune('\n')
+		return
+	}
+
+	if x == 1 {
+		for i := 0; i < y; i++ {
+			if i == 0 || i == y-1 {
+				z01.PrintRune('o')
+			} else {
+				z01.PrintRune('|')
+			}
+			z01.PrintRune('\n')
+		}
+		return
+	}
+
+	// Ligne du haut avec les o
+	z01.PrintRune('o')
+	for i := 0; i < x-2; i++ {
+		z01.PrintRune('-')
+	}
+	z01.PrintRune('o')
+	z01.PrintRune('\n')
+
+	if y <= 1 {
+		return
+	}
+
+	// Lignes du milieu avec les barres
+	for i := 0; i < y-2; i++ {
+		z01.PrintRune('|')
+		for j := 0; j < x-2; j++ {
+			z01.PrintRune(' ')
+		}
+		z01.PrintRune('|')
+		z01.PrintRune('\n')
+	}
+
+	// Ligne du bas avec les o
+	if y > 1 {
+		z01.PrintRune('o')
+		for i := 0; i < x-2; i++ {
+			z01.PrintRune('-')
+		}
+		z01.PrintRune('o')
+		z01.PrintRune('\n')
+	}
+}
